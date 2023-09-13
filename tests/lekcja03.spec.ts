@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Pulpit tests', () => {
-  test('quick payment with correct data', async ({ page }) => {
+  test('quick payment with correct data',  async ({ page }) => {
     await page.goto('https://demo-bank.vercel.app/');
-    await page.getByTestId('login-input').fill('testerLO');
+    await page.getByTestId('login-input').fill(newFunction());
     await page.getByTestId('password-input').fill('password');
     await page.getByTestId('login-button').click();
 
@@ -19,3 +19,7 @@ test.describe('Pulpit tests', () => {
     );
   });
 });
+
+function newFunction(): string {
+  return 'testerLO';
+}

@@ -46,6 +46,7 @@ test.only('Doładuje telefon o 222zł test', async ({ page }) => {
     await expect(page).toHaveTitle('Demobank - Bankowość Internetowa - Pulpit')
     await page.locator('#widget_1_topup_receiver').selectOption('502 xxx xxx');
     await expect(page.locator('#uniform-widget_1_topup_receiver > span')).toHaveText('502 xxx xxx');
+    await expect(page.locator('#uniform-widget_1_topup_receiver > span')).toHaveText('502 !!! xxx');
     await page.locator('#widget_1_topup_amount').fill('222');
     await page.locator('#widget_1_topup_agreement').check();
     await page.locator('#execute_phone_btn').click();
@@ -59,13 +60,13 @@ test.only('Doładuje telefon o 222zł test', async ({ page }) => {
     );
   });
 
-  test.only("Doładuje telefon o 3x3zł test", async ({ page }) => {
+  test.only("Doładuje telefon o 323zł test", async ({ page }) => {
     await expect(page).toHaveTitle("Demobank - Bankowość Internetowa - Pulpit");
     await page.locator("#widget_1_topup_receiver").selectOption("502 xxx xxx");
     await expect(
       page.locator("#uniform-widget_1_topup_receiver > span")
     ).toHaveText("502 xxx xxx");
-    await page.locator("#widget_1_topup_amount").fill("333");
+    await page.locator("#widget_1_topup_amount").fill("323");
     await page.locator("#widget_1_topup_agreement").check();
     await page.locator("#execute_phone_btn").click();
     await expect(page.locator("#ui-id-1")).toHaveText("Doładowanie wykonane");
@@ -74,7 +75,7 @@ test.only('Doładuje telefon o 222zł test', async ({ page }) => {
     // await expect(page.locator('#i-info')).toContainText('502 xxx xxx');
     await page.getByTestId("close-button").click();
     await expect(page.getByTestId("message-text")).toHaveText(
-      "Doładowanie wykonane! 333,00PLN na numer 502 xxx xxx"
+      "Doładowanie wykonane! 323,00PLN na numer 502 xxx xxx"
     );
   });
 });
