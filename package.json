@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "start": "npx playwright test --headed"
-
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:lekcja": "npm run test lekcja.spec.ts",
+    "test:ui": "npm run test -- --ui"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.37.1"
+    "@playwright/test": "^1.38.0"
   }
 }
